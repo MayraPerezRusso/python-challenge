@@ -26,8 +26,7 @@ def fsum(List):
     return Sum
 print (f"Total: {fsum(PL)}")
 Change=[PL[i+1]-PL[i] for i in range(len(PL)-1)]
-import statistics
-print (f"Average  Change: {round(statistics.mean(Change),2)}")
+print (f"Average  Change: {round(sum(Change)/len(Change),2)}")
 print (f"Greatest Increase in Profits: {Date[Change.index(max(Change))+1]} {max(Change)}")
 print (f"Greatest Decrease in Profits: {Date[Change.index(min(Change))+1]} {min(Change)}")
 
@@ -35,7 +34,6 @@ print (f"Greatest Decrease in Profits: {Date[Change.index(min(Change))+1]} {min(
 
 output_file=os.path.join("budget_final.txt")
 with open(output_file, "w", newline="\n") as text_file:
-    #writer=txt.writer(datafile)
     text_file.write("Financial Analysis\n")
     text_file.write("------------------------------------\n")
     text_file.write(f"Total Months: {len(Date)}\n")
